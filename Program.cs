@@ -6,7 +6,7 @@ using System.IO;
 
 namespace IntroSQL
 {
-    class Program  
+   public class Program  
     {
         static void Main(string[] args)
         {
@@ -16,15 +16,25 @@ namespace IntroSQL
                 .Build();
 
             string connString = config.GetConnectionString("DefaultConnection");
-            IDbConnection conn = new MySqlConnection(connString);
 
-            var repo = new DepartmentRepository(conn);
-            var departments = repo.GetAllDepartments(); 
+            IDbConnection connection = new MySqlConnection(connString);
 
-            foreach (var dept in departments)
+            var repo = new DapperProductRepository(connection);
+
+            var products = repo.GetAllProducts();
+            foreach (var prod in products)
             {
-                Console.WriteLine($"{dept.Name}");
+                Console.WriteLine($"{prod.ProductID} {prod.Name}");
+
             }
+
+           // var repo = new DepartmentRepository(conn);
+           // var departments = repo.GetAllDepartments(); 
+
+          //  foreach (var dept in departments)
+            //{
+              //  Console.WriteLine($"{dept.Name}");
+          //  }
         }
             
                 
