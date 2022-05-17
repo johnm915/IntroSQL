@@ -20,9 +20,9 @@ namespace IntroSQL
 
         public IEnumerable<Department> GetAllDepartments()
         {
-            var depos = _connection.Query<Department>("SELECT * FROM DEPARTMENTS");
+            return _connection.Query<Department>("SELECT * FROM DEPARTMENTS");
 
-            return depos;
+            
         }
 
         public void InsertDepartment(string newDepartmentName)

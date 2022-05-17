@@ -10,9 +10,10 @@ namespace IntroSQL
    {
         
         
-        IEnumerable<Department> GetAllDepartments(); 
-        
+        IEnumerable<Department> GetAllDepartments();
+        //void CreateDepartment(string Name);
 
-   }
+
+    }
 }
 
