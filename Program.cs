@@ -19,18 +19,29 @@ namespace IntroSQL
                 .Build();
 
             string connString = config.GetConnectionString("DefaultConnection");
+
             IDbConnection conn = new MySqlConnection(connString);
+
             var repo = new DapperDepartmentRepository(conn);
 
             Console.WriteLine("What is the name of the new product?");
+
             var prodName = Console.ReadLine();
-            Console.WriteLine("What is the price");
+
+            Console.WriteLine("What is the new price");
+
             var prodPrice = double.Parse(Console.ReadLine());
-            Console.WriteLine("What is the Category ID?");
+
+            Console.WriteLine("What is the new Category ID?");
+
             var prodCat = int.Parse(Console.ReadLine());
+
             var productRepo = new DapperProductRepository(conn);
+
             productRepo.CreateProduct(prodName, prodPrice, prodCat);
+
             var prodList = productRepo.GetAllProducts();
+
             foreach (var prod in prodList)
             {
                 Console.WriteLine($"{prod.ProductID} - {prod.Name}");

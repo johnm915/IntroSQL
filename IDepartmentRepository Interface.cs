@@ -9,11 +9,7 @@ namespace IntroSQL
    public interface IDepartmentRepository
    {
         
-        
-        IEnumerable<Department> GetAllDepartments();
-        //void CreateDepartment(string Name);
-
-
-    }
+        IEnumerable<Department> GetAllDepartments();    
+   }
 }
 
